@@ -17,7 +17,8 @@ public class GreetingResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-                .when().get("/hello-resteasy")
+                .when()
+                .get("/hello-resteasy")
                 .then()
                 .statusCode(403);
     }
@@ -25,10 +26,11 @@ public class GreetingResourceTest {
     @Test
     void hello() {
         Map<String, ?> map = new HashMap<>();
-        given().when().post("/hello-resteasy")
+        given()
+                .when()
+                .post("/hello-resteasy")
                 .then()
-                .statusCode(200)
-                .body(is("this is home"));
+                .statusCode(415);
     }
 
     @Test
