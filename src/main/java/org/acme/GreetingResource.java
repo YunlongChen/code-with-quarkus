@@ -9,6 +9,9 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 
+/**
+ * @author Stan
+ */
 @RestController
 @Path("/hello-resteasy")
 public class GreetingResource {
@@ -31,6 +34,22 @@ public class GreetingResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String test() {
-        return "this is home";
+        return "this is ho东澳岛me";
+    }
+
+    @POST
+    @Path("test")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String test2() {
+        return "test";
+    }
+
+    @GET
+    @Path("test")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String test4() {
+        return "tesqweqw的t";
     }
 }
