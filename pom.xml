@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
@@ -66,6 +66,20 @@
             <artifactId>quarkus-grpc</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-qute</artifactId>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>io.quarkus</groupId>-->
+        <!--            <artifactId>quarkus-smallrye-openapi</artifactId>-->
+        <!--        </dependency>-->
+        <!--        quarkus集成到nacos-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.github.keking</groupId>-->
+        <!--            <artifactId>quarkus-apollo-config-ext</artifactId>-->
+        <!--            <version>1.0-SNAPSHOT</version>-->
+        <!--        </dependency>-->
+        <dependency>
             <groupId>io.quarkiverse.mybatis</groupId>
             <artifactId>quarkus-mybatis</artifactId>
             <version>0.0.3</version>
@@ -89,18 +103,15 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${compiler-plugin.version}</version>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire-plugin.version}</version>
                 <configuration>
                     <systemPropertyVariables>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                        <!--                        <maven.home>${maven.home}</maven.home>-->
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -117,7 +128,6 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
                         <version>${surefire-plugin.version}</version>
                         <executions>
@@ -133,7 +143,6 @@
                                         </native.image.path>
                                         <java.util.logging.manager>org.jboss.logmanager.LogManager
                                         </java.util.logging.manager>
-                                        <!--                                        <maven.home>${maven.home}</maven.home>-->
                                     </systemPropertyVariables>
                                 </configuration>
                             </execution>
