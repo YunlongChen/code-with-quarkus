@@ -4,7 +4,7 @@ import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 import io.quarkus.qute.api.ResourcePath;
 import org.acme.pojo.Item;
-import org.springframework.stereotype.Controller;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,13 +15,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 /**
  * @author Stan
  */
-@Controller
 @Path("/home")
 public class HomeResource {
 
@@ -35,6 +32,9 @@ public class HomeResource {
     @ResourcePath("haha.txt")
     @Inject
     Template hello;
+
+    @ConfigProperty(name = "message", defaultValue = "Hello from default")
+    String message;
 
     /**
      * 方法注解信息给你了
@@ -57,7 +57,7 @@ public class HomeResource {
         item.name = name;
         BigDecimal price = item.price;
         TemplateInstance data = hello.data("name", item.name);
-        data.data("home", LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        data.data("home", message);
         return data;
     }
 }

@@ -4,14 +4,14 @@ import org.acme.mapper.UserMapper;
 import org.acme.service.TestService;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-
-@RestController
+/**
+ * @author Stan
+ */
 @Path("/hello-resteasy")
 public class GreetingResource {
 

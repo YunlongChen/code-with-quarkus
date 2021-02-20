@@ -28,9 +28,9 @@ public class GreetingResourceTest {
         Map<String, ?> map = new HashMap<>();
         given()
                 .when()
-                .post("/hello-resteasy")
+                .get("/hello-resteasy")
                 .then()
-                .statusCode(415);
+                .statusCode(403);
     }
 
     @Test
